@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Student Details</h2>
+    <div class="card">
+        <div class="card-body">
+            {% if student.photo %}
+                <img src="{{ student.photo.url }}" class="img-thumbnail mb-3" width="150" height="150">
+            {% endif %}
+            <h4>{{ student.name }}</h4>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Phone:</strong> {{ student.phone_number }}</p>
+            <p><strong>Course:</strong> {{ student.course }}</p>
+            <a href="{% url 'student_edit' student.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'student_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
